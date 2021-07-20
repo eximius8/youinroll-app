@@ -38,8 +38,8 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.tiktok_flutter"
-        minSdkVersion 16
+        applicationId "android.youinroll.com"
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

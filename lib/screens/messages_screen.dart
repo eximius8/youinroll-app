@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+//import 'package:stacked_services/stacked_services.dart';
 import 'package:tiktok_flutter/utils/tik_tok_icons_icons.dart';
+import 'package:tiktok_flutter/screens/chat_screen/chat_screen.dart';
 
 class MessagesScreen extends StatefulWidget {
   MessagesScreen({Key? key}) : super(key: key);
@@ -21,21 +23,29 @@ class _MessagesScreenState extends State<MessagesScreen> {
             padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 Container(
                   width: 20,
                 ),
                 Row(
                   children: [
                     Text(
-                      "All activity",
+                      "Все сообщения",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.arrow_drop_down),
                   ],
                 ),
-                Icon(Icons.send)
+                IconButton(
+                  icon: const Icon(Icons.chat),
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatScreen())
+                    )
+                  },
+                )
               ],
             ),
           ),
@@ -54,12 +64,12 @@ class _MessagesScreenState extends State<MessagesScreen> {
           ),
           SizedBox(height: 25),
           Text(
-            "All activity",
+            "Сообщения чата",
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 3),
           Text(
-            "Notifications about your account will appear here",
+            "И обновления",
             style: TextStyle(fontSize: 13, fontWeight: FontWeight.normal),
           ),
         ]),

@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_flutter/screens/feed_viewmodel.dart';
 import 'package:tiktok_flutter/utils/tik_tok_icons_icons.dart';
 import 'package:get_it/get_it.dart';
+import 'package:tiktok_flutter/widgets/cust_icns_icons.dart';
+
 
 class BottomBar extends StatelessWidget {
   static const double NavigationIconSize = 20.0;
   static const double CreateButtonWidth = 38.0;
 
+
   const BottomBar({Key? key}) : super(key: key);
+
+
 
   Widget get customCreateIcon => Container(
       width: 45.0,
@@ -59,17 +64,25 @@ class BottomBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              menuButton('Home', TikTokIcons.home, 0),
-              menuButton('Search', TikTokIcons.search, 1),
+              menuButton('Главная', CustIcns.home_hover, 0), //TikTokIcons.home,
+              menuButton('Поиск', TikTokIcons.search, 1),
+              /*SizedBox(
+                width: 10,
+              ),*/
+             /* menuButton('',
+                  CustIcns.camera,
+                  2,
+              ),*/
+              Icon(
+                  CustIcns.camera,
+                  size: 30,
+               // color: Colors.white,
+              ), //customCreateIcon,
               SizedBox(
-                width: 15,
+                width: 25,
               ),
-              customCreateIcon,
-              SizedBox(
-                width: 15,
-              ),
-              menuButton('Messages', TikTokIcons.messages, 2),
-              menuButton('Profile', TikTokIcons.profile, 3)
+              menuButton('Мессенджер', CustIcns.plane_hover, 2),
+              menuButton('Я', CustIcns.people_active , 3) // TikTokIcons.profile
             ],
           ),
           SizedBox(
@@ -81,6 +94,7 @@ class BottomBar extends StatelessWidget {
   }
 
   Widget menuButton(String text, IconData icon, int index) {
+    var twcolor = const Color.fromRGBO(119, 44, 232, 1);
     return GestureDetector(
         onTap: () {
           GetIt.instance<FeedViewModel>().setActualScreen(index);
@@ -97,12 +111,13 @@ class BottomBar extends StatelessWidget {
                           ? Colors.white
                           : Colors.white70
                       : GetIt.instance<FeedViewModel>().actualScreen == index
-                          ? Colors.black
-                          : Colors.black54,
+                          ? twcolor //Colors.black
+                          : twcolor, //Colors.black54,
                   size: NavigationIconSize),
               SizedBox(
                 height: 7,
               ),
+
               Text(
                 text,
                 style: TextStyle(

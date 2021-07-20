@@ -1,4 +1,4 @@
-package com.example.tiktok_flutter
+package android.youinroll.com
 
 import io.flutter.embedding.android.FlutterActivity
 

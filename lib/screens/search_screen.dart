@@ -36,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text("Search")
+                          Text("Поиск")
                         ],
                       ),
                     ),

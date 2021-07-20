@@ -81,7 +81,7 @@ class ActionsToolbar extends StatelessWidget {
               color: Color.fromARGB(255, 255, 43, 84),
               borderRadius: BorderRadius.circular(15.0)),
           child: Icon(
-            Icons.add,
+            Icons.videocam,
             color: Colors.white,
             size: 20.0,
           )),
