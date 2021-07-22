@@ -140,7 +140,7 @@ class _FeedScreenState extends State<FeedScreen> {
                               height: 5,
                             ),
                             Text(
-                              "Following",
+                              "Отслеживаемые",
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.normal),
                             ),
@@ -470,7 +470,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text('Following',
+                  Text('Отслеживаемые',
                       style: TextStyle(
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal,
@@ -486,7 +486,7 @@ class _FeedScreenState extends State<FeedScreen> {
                   SizedBox(
                     width: 7,
                   ),
-                  Text('For You',
+                  Text('Для тебя',
                       style: TextStyle(
                           fontSize: 17.0,
                           fontWeight: FontWeight.bold,

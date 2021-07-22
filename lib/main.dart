@@ -21,8 +21,8 @@ Future<void> main() async {
         accentColor: Color.fromRGBO(119, 44, 232, 1),
       ),
       routes: {
-        '/': (context) => LoginScreen(),
-        //'/': (context) => FeedScreen(),
+        //'/': (context) => LoginScreen(),
+        '/': (context) => FeedScreen(),
         '/profile': (context) => ProfileScreen(),
         '/search': (context) => SearchScreen(),
         '/chat': (context) => MessagesScreen(),

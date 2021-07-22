@@ -5,16 +5,13 @@ import 'package:tiktok_flutter/screens/feed_viewmodel.dart';
 import 'package:tiktok_flutter/utils/tik_tok_icons_icons.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tiktok_flutter/widgets/cust_icns_icons.dart';
-
+import 'package:path/path.dart';
 
 class BottomBar extends StatelessWidget {
   static const double NavigationIconSize = 20.0;
   static const double CreateButtonWidth = 38.0;
 
-
   const BottomBar({Key? key}) : super(key: key);
-
-
 
   Widget get customCreateIcon => Container(
       width: 45.0,
@@ -53,6 +50,16 @@ class BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var route = ModalRoute.of(context);
+    bool isHomeRoute;
+
+    if (route != null) {
+      isHomeRoute = route.settings.name == '/';
+      print(isHomeRoute);
+    } else {
+      isHomeRoute = true;
+    }
+
     return Container(
       decoration:
           BoxDecoration(border: Border(top: BorderSide(color: Colors.black12))),
@@ -69,20 +76,21 @@ class BottomBar extends StatelessWidget {
               /*SizedBox(
                 width: 10,
               ),*/
-             /* menuButton('',
+              /* menuButton('',
                   CustIcns.camera,
                   2,
               ),*/
-              Icon(
-                  CustIcns.camera,
-                  size: 30,
-               // color: Colors.white,
-              ), //customCreateIcon,
+              menuButton('', CustIcns.camera, 5),
+              /* Icon(
+                CustIcns.camera,
+                size: 30,
+                color: (isHomeRoute ? Colors.white : Colors.black),
+              ),*/ //customCreateIcon,
               SizedBox(
-                width: 25,
+                width: 10,
               ),
               menuButton('Мессенджер', CustIcns.plane_hover, 2),
-              menuButton('Я', CustIcns.people_active , 3) // TikTokIcons.profile
+              menuButton('Я', Icons.person_outline, 3) // TikTokIcons.profile
             ],
           ),
           SizedBox(
@@ -111,13 +119,12 @@ class BottomBar extends StatelessWidget {
                           ? Colors.white
                           : Colors.white70
                       : GetIt.instance<FeedViewModel>().actualScreen == index
-                          ? twcolor //Colors.black
-                          : twcolor, //Colors.black54,
+                          ? Colors.black //twcolor
+                          : Colors.black54, //twcolor, //
                   size: NavigationIconSize),
               SizedBox(
                 height: 7,
               ),
-
               Text(
                 text,
                 style: TextStyle(
