@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_flutter/service_locator.dart';
 // screens
 import 'package:tiktok_flutter/screens/screens.dart';
+import 'package:tiktok_flutter/widgets/jitsi_widget.dart';
 
 //import 'package:tiktok_flutter/screens/feed_screen.dart';
 //import 'package:tiktok_flutter/screens/messages_screen.dart';
@@ -22,8 +23,9 @@ Future<void> main() async {
       ),
       routes: {
         //'/': (context) => LoginScreen(),
-        '/': (context) => FeedScreen(),
-        '/profile': (context) => ProfileScreen(),
+        '/': (context) => Meeting(),
+        //'/': (context) => FeedScreen(),
+        '/profile': (context) => LoginScreen(), //ProfileScreen(),
         '/search': (context) => SearchScreen(),
         '/chat': (context) => MessagesScreen(),
         '/dialog': (context) => DialogScreen(),

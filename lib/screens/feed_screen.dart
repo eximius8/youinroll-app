@@ -12,6 +12,9 @@ import 'package:tiktok_flutter/widgets/video_description.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stacked/stacked.dart';
 import 'package:video_player/video_player.dart';
+import 'package:tiktok_flutter/screens/screens.dart';
+
+import 'package:tiktok_flutter/video.dart';
 
 class FeedScreen extends StatefulWidget {
   FeedScreen({Key? key}) : super(key: key);
@@ -30,6 +33,29 @@ class _FeedScreenState extends State<FeedScreen> {
 
     super.initState();
   }
+
+  /* @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: VideoService.getFeed(page: 2),
+      builder: (context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          _tabController = TabController(
+              length: (snapshot.data.length + items.length), vsync: this);
+
+          _tabController.addListener(_tabControllerListener);
+
+          items.addAll(snapshot.data);
+
+          items.removeWhere((element) => (element == null));
+
+          return getBody();
+        }
+
+        return Center(child: CircularProgressIndicator());
+      },
+    );
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -507,7 +533,7 @@ class _FeedScreenState extends State<FeedScreen> {
       case 2:
         return MessagesScreen();
       case 3:
-        return ProfileScreen();
+        return LoginScreen();
       default:
         return feedVideos();
     }

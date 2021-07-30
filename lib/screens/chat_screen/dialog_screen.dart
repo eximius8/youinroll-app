@@ -136,7 +136,7 @@ class _ChatMainState extends State<ChatMain> {
               controller: myController,
               decoration: InputDecoration(
                   hintText: "Cообщение",
-                  //  labelText: "Message",
+                  labelText: "Cообщение",
                   suffixIcon: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.end,
