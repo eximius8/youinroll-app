@@ -51,7 +51,7 @@ class _FeedScreenState extends State<FeedScreen> {
       backgroundColor: GetIt.instance<FeedViewModel>().actualScreen == 0
           ? Colors.black
           : Colors.white,
-      body: Stack(
+      body: scrollFeed(),/* Stack(
         children: [
           PageView.builder(
             itemCount: 2,
@@ -71,11 +71,11 @@ class _FeedScreenState extends State<FeedScreen> {
             },
           )
         ],
-      ),
+      ),*/
     );
   }
 
-  Widget profileView() {
+ /* Widget profileView() {
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -439,7 +439,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 ),
               ]))),
     );
-  }
+  }*/
 
   Widget scrollFeed() {
     return Column(
