@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_flutter/widgets/jitsi_widget.dart';
 
 
 class VideoScreen extends StatelessWidget {
@@ -32,7 +33,13 @@ class VideoScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 35, vertical: 2),
                 child: TextButton(
-                  onPressed: () => print("Creating a room...."),
+                  onPressed: () {
+                    print("Creating a room....");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Meeting()),
+                    );
+                  },
                   child: Text(
                     'Создать комнату',
                     textAlign: TextAlign.center,

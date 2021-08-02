@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:tiktok_flutter/data/video.dart';
 import 'package:tiktok_flutter/screens/feed_viewmodel.dart';
 import 'package:tiktok_flutter/screens/messages_screen.dart';
-import 'package:tiktok_flutter/screens/profile_screen.dart';
+//import 'package:tiktok_flutter/screens/profile_screen.dart';
 import 'package:tiktok_flutter/screens/search_screen.dart';
 import 'package:tiktok_flutter/widgets/actions_toolbar.dart';
 import 'package:tiktok_flutter/widgets/bottom_bar.dart';
@@ -15,6 +15,8 @@ import 'package:video_player/video_player.dart';
 import 'package:tiktok_flutter/screens/screens.dart';
 
 import 'package:tiktok_flutter/video.dart';
+
+
 
 class FeedScreen extends StatefulWidget {
   FeedScreen({Key? key}) : super(key: key);
@@ -34,33 +36,12 @@ class _FeedScreenState extends State<FeedScreen> {
     super.initState();
   }
 
-  /* @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: VideoService.getFeed(page: 2),
-      builder: (context, AsyncSnapshot snapshot) {
-        if (snapshot.hasData) {
-          _tabController = TabController(
-              length: (snapshot.data.length + items.length), vsync: this);
 
-          _tabController.addListener(_tabControllerListener);
-
-          items.addAll(snapshot.data);
-
-          items.removeWhere((element) => (element == null));
-
-          return getBody();
-        }
-
-        return Center(child: CircularProgressIndicator());
-      },
-    );
-  }*/
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<FeedViewModel>.reactive(
-        disposeViewModel: false,
+        disposeViewModel: true,
         builder: (context, model, child) => videoScreen(),
         viewModelBuilder: () => feedViewModel);
   }
@@ -75,7 +56,7 @@ class _FeedScreenState extends State<FeedScreen> {
           PageView.builder(
             itemCount: 2,
             onPageChanged: (value) {
-              print(value);
+              print("before $value");
               if (value == 1)
                 SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
               else

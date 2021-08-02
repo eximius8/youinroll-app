@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_flutter/service_locator.dart';
 // screens
 import 'package:tiktok_flutter/screens/screens.dart';
-import 'package:tiktok_flutter/widgets/jitsi_widget.dart';
+import './widgets/player_widget.dart';
+// Copyright 2013 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 
-//import 'package:tiktok_flutter/screens/feed_screen.dart';
-//import 'package:tiktok_flutter/screens/messages_screen.dart';
-//import 'package:tiktok_flutter/screens/profile_screen.dart';
-//import 'package:tiktok_flutter/screens/search_screen.dart';
+// ignore_for_file: public_member_api_docs
+
+
+
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +27,8 @@ Future<void> main() async {
       ),
       routes: {
         //'/': (context) => LoginScreen(),
-        '/': (context) => Meeting(),
-        //'/': (context) => FeedScreen(),
+        '/': (context) => FeedScreen(),
+      //  '/': (context) => VidListik(page: 1,),
         '/profile': (context) => LoginScreen(), //ProfileScreen(),
         '/search': (context) => SearchScreen(),
         '/chat': (context) => MessagesScreen(),

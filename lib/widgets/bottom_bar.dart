@@ -80,17 +80,17 @@ class BottomBar extends StatelessWidget {
                   CustIcns.camera,
                   2,
               ),*/
-              menuButton('', CustIcns.camera, 5),
+              menuButton('', CustIcns.camera, 2),
               /* Icon(
                 CustIcns.camera,
                 size: 30,
                 color: (isHomeRoute ? Colors.white : Colors.black),
               ),*/ //customCreateIcon,
-              SizedBox(
+            /*  SizedBox(
                 width: 10,
-              ),
-              menuButton('Мессенджер', CustIcns.plane_hover, 2),
-              menuButton('Я', Icons.person_outline, 3) // TikTokIcons.profile
+              ),*/
+              menuButton('Мессенджер', CustIcns.plane_hover, 3),
+              menuButton('Я', Icons.person_outline, 4) // TikTokIcons.profile
             ],
           ),
           SizedBox(
@@ -109,7 +109,7 @@ class BottomBar extends StatelessWidget {
         },
         child: Container(
           height: 45,
-          width: 80,
+          width: 70,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

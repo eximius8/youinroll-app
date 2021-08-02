@@ -25,6 +25,9 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   flutter_login: ^2.2.0
   jitsi_meet: ^4.0.0
+  flutter_voip_push_notification: ^0.0.3
+ # flutter_phone_direct_caller: ^2.0.0
+ # url_launcher: ^6.0.9
  # dash_chat: ^1.1.16
  # flutter_svg: ^0.22.0
 
