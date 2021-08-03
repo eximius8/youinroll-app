@@ -23,7 +23,7 @@ Future<void> main() async {
       // home: FeedScreen(),
       theme: ThemeData(
         primaryColor: Colors.white,
-        accentColor: Color.fromRGBO(119, 44, 232, 1),
+        accentColor: Colors.white,// Color.fromRGBO(119, 44, 232, 1),
       ),
       routes: {
         //'/': (context) => LoginScreen(),

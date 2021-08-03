@@ -71,8 +71,8 @@ class BottomBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              menuButton('Главная', CustIcns.home_hover, 0), //TikTokIcons.home,
-              menuButton('Поиск', TikTokIcons.search, 1),
+              menuButton('Главная', CustIcns.home_active, 0, 20.0, CustIcns.home_hover ), //TikTokIcons.home,
+              menuButton('Просмотры', TikTokIcons.search, 1, 20.0, TikTokIcons.search),
               /*SizedBox(
                 width: 10,
               ),*/
@@ -80,7 +80,7 @@ class BottomBar extends StatelessWidget {
                   CustIcns.camera,
                   2,
               ),*/
-              menuButton('', CustIcns.camera, 2),
+              menuButton('', Icons.video_call, 2, 35.0, Icons.video_call),
               /* Icon(
                 CustIcns.camera,
                 size: 30,
@@ -89,8 +89,8 @@ class BottomBar extends StatelessWidget {
             /*  SizedBox(
                 width: 10,
               ),*/
-              menuButton('Мессенджер', CustIcns.plane_hover, 3),
-              menuButton('Я', Icons.person_outline, 4) // TikTokIcons.profile
+              menuButton('Мессенджер', CustIcns.plane_active, 3, 20.0, CustIcns.plane_hover),
+              menuButton('Я', TikTokIcons.profile, 4, 20.0, TikTokIcons.profile)
             ],
           ),
           SizedBox(
@@ -101,35 +101,50 @@ class BottomBar extends StatelessWidget {
     );
   }
 
-  Widget menuButton(String text, IconData icon, int index) {
-    var twcolor = const Color.fromRGBO(119, 44, 232, 1);
+  Widget menuButton(String text, IconData icon, int index, double isize, IconData iconAccent) {
+
+    var iconColor = GetIt.instance<FeedViewModel>().actualScreen == 0
+        ? GetIt.instance<FeedViewModel>().actualScreen == index
+        ? Colors.white
+        : Colors.white70
+          : GetIt.instance<FeedViewModel>().actualScreen == index
+          ? Colors.black
+          : Colors.black54;
+
+    if (GetIt.instance<FeedViewModel>().actualScreen == 0 && index == 2){
+      iconColor = Colors.white;
+    }
+
     return GestureDetector(
         onTap: () {
           GetIt.instance<FeedViewModel>().setActualScreen(index);
         },
         child: Container(
-          height: 45,
+          height: 55,
           width: 70,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(icon,
-                  color: GetIt.instance<FeedViewModel>().actualScreen == 0
+              Icon(GetIt.instance<FeedViewModel>().actualScreen == index
+                  ? icon
+                  : iconAccent,
+                  color: iconColor,
+                /*  GetIt.instance<FeedViewModel>().actualScreen == 0
                       ? GetIt.instance<FeedViewModel>().actualScreen == index
                           ? Colors.white
                           : Colors.white70
                       : GetIt.instance<FeedViewModel>().actualScreen == index
                           ? Colors.black //twcolor
-                          : Colors.black54, //twcolor, //
-                  size: NavigationIconSize),
-              SizedBox(
+                          : Colors.black54, */
+                  size: isize),
+             SizedBox(
                 height: 7,
               ),
               Text(
                 text,
                 style: TextStyle(
                     fontWeight:
-                        GetIt.instance<FeedViewModel>().actualScreen == index
+                    GetIt.instance<FeedViewModel>().actualScreen == index
                             ? FontWeight.bold
                             : FontWeight.normal,
                     color: GetIt.instance<FeedViewModel>().actualScreen == 0
@@ -139,7 +154,7 @@ class BottomBar extends StatelessWidget {
                         : GetIt.instance<FeedViewModel>().actualScreen == index
                             ? Colors.black
                             : Colors.black54,
-                    fontSize: 11.0),
+                    fontSize: 11),
               )
             ],
           ),
